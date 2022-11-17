@@ -1,0 +1,15 @@
+First Create a database schema name : tweetapp 
+
+Then run these queries
+
+create table users(uId int not null primary key auto_increment, username varchar(255) , emailid varchar(255) not null, password varchar(255) not null);
+create table logging_details(Id int not null primary key auto_increment, emailid varchar(255), last_login_time datetime, last_logout_time datetime);
+create table tweets(Id int not null auto_increment primary key, emailId varchar(255) not null unique, tweet varchar(255) not null, tweet_date datetime, foreign key(emailId) references users(emailid));
+
+
+Altering Schema:
+
+alter table users add unique(emailid);
+
+alter table logging_details add foreign key(emailid) references users(emailid);
+
